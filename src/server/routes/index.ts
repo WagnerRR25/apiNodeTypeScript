@@ -11,10 +11,9 @@ router.get('/', (_, res) => {
   return res.send('Hello, DEV!');
 });
 
-router.post('/cidades', (req, res) => {
-  console.log(req.body);
+router.get('/cidades', CidadesController.getAllValidation, CidadesController.getAll);
+router.post('/cidades', CidadesController.createValidation, CidadesController.create);
 
-  return res.status(StatusCodes.UNAUTHORIZED).json(req.body);
-});
+
 
 export { router };
